@@ -1,0 +1,27 @@
+.items-container ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 5px;
+    padding: 20px;
+    list-style: none;
+}
+
+.list-items {
+    display: grid;
+    grid-template-rows: 50px 200px 50px;
+    border: 1px solid black;
+}
+
+li {
+    border: 1px solid blue;
+}
+
+.edit-list {
+    display: grid;
+    /* grid-template-rows: 1fr 1fr; */
+    padding: 5px;
+}
+
+.edit-list .list-price {
+    justify-self: center;
+}
