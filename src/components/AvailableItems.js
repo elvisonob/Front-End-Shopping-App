@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 import classes from './AvailableItems.module.css';
 import mango from './../Images/mango.webp';
 import orange from './../Images/orange.jpg';
 import potatoes from './../Images/potatoes.jpg';
 import rice from './../Images/rice.jpg';
+import Cart from './Cart';
 
-const Items = [
+const items = [
   {
     id: 'm1',
     name: 'mango',
@@ -26,19 +27,27 @@ const Items = [
 ];
 
 const AvailableItems = () => {
+  const [addItemToCart, setAddedItem] = useState(items);
+  const onClickAddCart = () => {
+    setAddedItem(
+      addItemToCart.map((foodItems) => (
+        <Cart id={foodItems.id} name={foodItems.name} />
+      ))
+    );
+  };
   return (
     <div className={classes['items-container']}>
       <ul>
-        {Items.map((item) => {
+        {items.map((item) => {
           return (
-            <div className={classes['list-items']}>
+            <div className={classes['list-items']} key={item.id}>
               <li>{item.name}</li>
               <li>
                 <img alt="images" width="50%" height="50%" />
               </li>
               <li className={classes['edit-list']}>
-                <div className={classes['list-price']}>{item.price}</div>
-                <button>Add to Cart</button>
+                <div className={classes['list-price']}>£{item.price}</div>
+                <button onClick={onClickAddCart}>Add to Cart</button>
               </li>
             </div>
           );

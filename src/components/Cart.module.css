@@ -1,0 +1,18 @@
+.cart-container {
+    display: grid;
+    justify-content: center;
+    margin-top: 50px;
+    grid-template-rows: 50px 50px 50px;
+}
+
+.sub-container-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 50px 50px;
+    border: 1px solid black;
+    padding: 10px;
+    grid-gap: 10px;
+}
+
+.total-amount {
+    margin-top: 10px;
+}
