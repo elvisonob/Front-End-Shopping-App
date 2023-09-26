@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classes from './Cart.module.css';
 
 const Cart = (props) => {
-  const { cartItems } = props;
+  const { cartItems, onAddItem, onRemoveItem } = props;
   return (
     <div className={classes['cart-container']}>
       <h2>Cart</h2>
@@ -11,10 +11,11 @@ const Cart = (props) => {
         ? 'Cart is Empty'
         : cartItems.map((item) => (
             <div className={classes['sub-container-column']} key={item.id}>
-              <div>{item.qty}</div>
-              <div>{item.price}</div>
-              <button>+</button>
-              <button>-</button>
+              <div>
+                {item.qty}x{item.price}
+              </div>
+              <button onClick={() => onAddItem(item)}>+</button>
+              <button onClick={() => onRemoveItem(item)}>-</button>
               <div>{item.name}</div>
             </div>
           ))}
