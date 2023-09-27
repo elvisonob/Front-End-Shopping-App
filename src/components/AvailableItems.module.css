@@ -8,7 +8,7 @@
 
 .list-items {
     display: grid;
-    grid-template-rows: 50px 200px 50px;
+    grid-template-rows: 50px 200px 1fr;
     border: 1px solid black;
 }
 

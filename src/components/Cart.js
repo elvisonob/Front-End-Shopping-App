@@ -3,6 +3,12 @@ import classes from './Cart.module.css';
 
 const Cart = (props) => {
   const { cartItems, onAddItem, onRemoveItem } = props;
+
+  const totalAmount = cartItems.reduce(
+    (acc, curr) => acc + curr.price * curr.qty,
+    0
+  );
+
   return (
     <div className={classes['cart-container']}>
       <h2>Cart</h2>
@@ -19,7 +25,9 @@ const Cart = (props) => {
               <div>{item.name}</div>
             </div>
           ))}
-      {/* <h2 className={classes['total-amount']}>Total Amount: £50</h2> */}
+      <h2 className={classes['total-amount']}>
+        Total Amount: {totalAmount.toFixed(2)}
+      </h2>
     </div>
   );
 };
