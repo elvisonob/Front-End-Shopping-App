@@ -4,8 +4,9 @@ import mango from './../Images/mango.webp';
 import orange from './../Images/orange.jpg';
 import potatoes from './../Images/potatoes.jpg';
 import rice from './../Images/rice.jpg';
+import Filter from './Filter.js';
 
-const items = [
+export const items = [
   {
     id: 'm1',
     name: 'mango',
@@ -41,8 +42,25 @@ const items = [
 
 const AvailableItems = (props) => {
   const { onAddItem } = props;
+  const [filteredDate, setFilteredDate] = useState('2024');
+  const [filteredArray, setFilteredArray] = useState([]);
+
+  const dropDownChange = (date) => {
+    setFilteredDate(
+      filteredArray.map((item) => item.useByDate.getFullYear() === date)
+    );
+  };
+
+  const newArray = setFilteredArray(
+    items.map((item) => item.useByDate.getFullYear() === filteredDate)
+  );
+
+  // const filteredItem = setFilteredDate(
+  //   items.filter((item) => item.useByDate === filteredDate)
+  // );
   return (
     <div className={classes['items-container']}>
+      <Filter filteredDate={filteredDate} onDropDown={dropDownChange} />
       <ul>
         {items.map((item) => {
           return (

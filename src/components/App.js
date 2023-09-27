@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import AvailableItems from './AvailableItems';
 import Cart from './Cart.js';
-import Filter from './Filter.js';
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -39,7 +38,6 @@ const App = () => {
   };
   return (
     <div>
-      <Filter cartItems={cartItems} />
       <AvailableItems onAddItem={onAddItem} />
       <Cart
         onAddItem={onAddItem}
