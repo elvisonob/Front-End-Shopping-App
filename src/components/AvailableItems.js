@@ -42,25 +42,18 @@ export const items = [
 
 const AvailableItems = (props) => {
   const { onAddItem } = props;
-  const [filteredDate, setFilteredDate] = useState('2024');
-  const [filteredArray, setFilteredArray] = useState([]);
 
-  const dropDownChange = (date) => {
-    setFilteredDate(
-      filteredArray.map((item) => item.useByDate.getFullYear() === date)
-    );
+  const [filteredArray, setFilteredArray] = useState([]);
+  const [filteredYear, setFilteredYear] = useState('2024');
+
+  const onChangeFilterDate = (filteredYear) => {
+    console.log(filteredYear);
+    setFilteredYear(filteredYear);
   };
 
-  const newArray = setFilteredArray(
-    items.map((item) => item.useByDate.getFullYear() === filteredDate)
-  );
-
-  // const filteredItem = setFilteredDate(
-  //   items.filter((item) => item.useByDate === filteredDate)
-  // );
   return (
     <div className={classes['items-container']}>
-      <Filter filteredDate={filteredDate} onDropDown={dropDownChange} />
+      <Filter selected={filteredYear} onDropDownChange={onChangeFilterDate} />
       <ul>
         {items.map((item) => {
           return (
