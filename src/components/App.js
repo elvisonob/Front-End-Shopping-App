@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AvailableItems from './AvailableItems';
 import Cart from './Cart.js';
+import Form from './Form.js';
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -39,6 +40,7 @@ const App = () => {
   return (
     <div>
       <AvailableItems onAddItem={onAddItem} />
+      <Form />
       <Cart
         onAddItem={onAddItem}
         onRemoveItem={onRemoveItem}
