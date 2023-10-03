@@ -37,10 +37,22 @@ const App = () => {
       );
     }
   };
+
+  const onAddItemManually = (manualInput) => {
+    setCartItems([
+      ...cartItems,
+      {
+        ...manualInput,
+        name: manualInput.productName,
+        price: manualInput.productPrice,
+        qty: 1,
+      },
+    ]);
+  };
   return (
     <div>
       <AvailableItems onAddItem={onAddItem} />
-      <Form />
+      <Form onManualInput={onAddItemManually} />
       <Cart
         onAddItem={onAddItem}
         onRemoveItem={onRemoveItem}

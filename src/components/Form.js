@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Form.css';
 
-const Form = () => {
+const Form = (props) => {
   const [productName, setProductName] = useState('');
   const [productAmount, setProductAmount] = useState('');
   const [errorName, setErrorName] = useState(null);
@@ -12,11 +12,12 @@ const Form = () => {
   };
 
   const onProductAmount = (event) => {
-    setProductAmount(event.target.value);
+    setProductAmount(parseInt(event.target.value));
   };
 
   const onSubmitForm = () => {
     console.log(productName, productAmount);
+    props.onManualInput({ productName, productAmount });
   };
 
   return (
