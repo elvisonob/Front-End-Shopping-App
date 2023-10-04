@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Filter.css';
 
 const Filter = (props) => {
@@ -9,10 +9,11 @@ const Filter = (props) => {
     <div>
       <label>Filter By Date</label>
       <select value={props.selected} onChange={dropDownChange}>
-        <option value="2024">2024</option>
-        <option value="2025">2025</option>
-        <option value="2026">2026</option>
-        <option value="2027">2027</option>
+        <option value="">All items</option>
+        <option value="2024">Use by 2024</option>
+        <option value="2025">Use by 2025</option>
+        <option value="2026">Use by 2026</option>
+        <option value="2027">Use by 2027</option>
       </select>
     </div>
   );
