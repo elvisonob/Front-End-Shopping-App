@@ -43,8 +43,9 @@ const App = () => {
       ...cartItems,
       {
         ...manualInput,
+        id: Math.random(),
         name: manualInput.productName,
-        price: manualInput.productPrice,
+        price: manualInput.productAmount,
         qty: 1,
       },
     ]);

@@ -12,12 +12,12 @@ const Form = (props) => {
   };
 
   const onProductAmount = (event) => {
-    setProductAmount(parseInt(event.target.value));
+    setProductAmount(event.target.value);
   };
 
   const onSubmitForm = () => {
     console.log(productName, productAmount);
-    props.onManualInput({ productName, productAmount });
+    props.onManualInput({ productName, productAmount: +productAmount });
   };
 
   return (
