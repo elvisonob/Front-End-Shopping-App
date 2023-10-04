@@ -64,7 +64,7 @@ const AvailableItems = (props) => {
             <div className={classes['list-items']} key={item.id}>
               <h2>{item.name}</h2>
               <li>
-                <img alt="images" width="50%" height="50%" />
+                <img src={item.image} alt="images" width="100%" height="100%" />
               </li>
               <li className={classes['edit-list']}>
                 <div className={classes['list-price']}>

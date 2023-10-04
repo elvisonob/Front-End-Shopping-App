@@ -17,7 +17,7 @@ const Form = (props) => {
   const onSubmitForm = () => {
     if (productName.trim() === '' || productAmount.trim() === '') {
       return setError('Please ensure you fill both columns');
-    } else if (productAmount < 0 || productAmount === 0) {
+    } else if (productAmount < 0 || productAmount === '0') {
       return setError('Please add a valid amount');
     }
     console.log(productName, productAmount);
@@ -39,6 +39,7 @@ const Form = (props) => {
       </form>
       <br />
       <button onClick={onSubmitForm}>Add to Cart </button>
+      <button onClick={props.onClickButton}>Close</button>
     </div>
   );
 };

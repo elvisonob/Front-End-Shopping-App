@@ -5,6 +5,7 @@ import Form from './Form.js';
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
+  const [addProductManually, setAddProductManually] = useState(false);
 
   const onAddItem = (product) => {
     const existingItem = cartItems.find((item) => item.id === product.id);
@@ -50,10 +51,24 @@ const App = () => {
       },
     ]);
   };
+
+  const onOpenProductForm = () => {
+    setAddProductManually(true);
+  };
+
+  const onCloseProductForm = () => {
+    setAddProductManually(false);
+  };
   return (
     <div>
       <AvailableItems onAddItem={onAddItem} />
-      <Form onManualInput={onAddItemManually} />
+      <button onClick={onOpenProductForm}>Add Product Manually</button>
+      {addProductManually && (
+        <Form
+          onClickButton={onCloseProductForm}
+          onManualInput={onAddItemManually}
+        />
+      )}
       <Cart
         onAddItem={onAddItem}
         onRemoveItem={onRemoveItem}

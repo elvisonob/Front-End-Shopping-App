@@ -4,3 +4,10 @@
     box-sizing: border-box;
     background-color: darkgoldenrod;
 }
+
+button {
+    padding: 5px;
+    color: white;
+    background-color: brown;
+    border-radius: 5px;
+}

@@ -25,3 +25,7 @@ li {
 .edit-list .list-price {
     justify-self: center;
 }
+
+h2 {
+    text-align: center;
+}
