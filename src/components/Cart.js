@@ -29,6 +29,7 @@ const Cart = (props) => {
       <h2 className={classes['total-amount']}>
         Total Amount: £{totalAmount.toFixed(2)}
       </h2>
+      <button onClick={props.onShowModal}>Check out</button>
     </div>
   );
 };

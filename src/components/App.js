@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import AvailableItems from './AvailableItems';
 import Cart from './Cart.js';
 import Form from './Form.js';
+import Modal from './Modal.js';
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
   const [addProductManually, setAddProductManually] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const onAddItem = (product) => {
     const existingItem = cartItems.find((item) => item.id === product.id);
@@ -59,8 +62,23 @@ const App = () => {
   const onCloseProductForm = () => {
     setAddProductManually(false);
   };
+
+  const onOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const onCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const portalElement = document.getElementById('overlays');
   return (
     <div>
+      {showModal &&
+        ReactDOM.createPortal(
+          <Modal notShowModal={onCloseModal} />,
+          portalElement
+        )}
       <AvailableItems onAddItem={onAddItem} />
       <button onClick={onOpenProductForm}>Add Product Manually</button>
       {addProductManually && (
@@ -73,6 +91,7 @@ const App = () => {
         onAddItem={onAddItem}
         onRemoveItem={onRemoveItem}
         cartItems={cartItems}
+        onShowModal={onOpenModal}
       />
     </div>
   );
