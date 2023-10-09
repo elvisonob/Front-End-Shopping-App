@@ -76,7 +76,7 @@ const App = () => {
     <div>
       {showModal &&
         ReactDOM.createPortal(
-          <Modal notShowModal={onCloseModal} />,
+          <Modal cartItems={cartItems} notShowModal={onCloseModal} />,
           portalElement
         )}
       <AvailableItems onAddItem={onAddItem} />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classes from './Cart.module.css';
+import Modal from './Modal';
 
 const Cart = (props) => {
   const { cartItems, onAddItem, onRemoveItem } = props;
