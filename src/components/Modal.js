@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classes from './Modal.module.css';
 
 const Modal = (props) => {
-  const { notShowModal, cartItems } = props;
+  const { notShowModal, modalContents } = props;
 
   // const totalAmount = cartItems.reduce(
   //   (acc, curr) => acc + curr.price * curr.qty,
@@ -11,7 +11,7 @@ const Modal = (props) => {
 
   return (
     <div className={classes.backDrop}>
-      {cartItems.map((items) => (
+      {modalContents.map((items) => (
         <div className={classes.modal} key={items.id}>
           <div>{items.name}</div>
           <div>
