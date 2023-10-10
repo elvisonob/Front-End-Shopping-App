@@ -1,0 +1,17 @@
+.input {
+    border: 2px solid black;
+}
+
+form label {
+    margin-bottom: 10px;
+    color: #2c0d00;
+    font-weight: 700;
+}
+
+.control-group {
+    margin: 1rem auto;
+    border: 2px solid #8a2b06;
+    padding: 10px;
+    width: 35%;
+    border-radius: 10px;
+}

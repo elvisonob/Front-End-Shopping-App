@@ -30,29 +30,31 @@ const Form = (props) => {
 
   return (
     <div className="form">
-      <form>
-        <label htmlFor="name">Product Name </label>
-        <input
-          type="text"
-          id="name"
-          onChange={onProductName}
-          value={productName}
-        />
+      <div className="control-group">
+        <form>
+          <label htmlFor="name">Product Name </label>
+          <input
+            type="text"
+            id="name"
+            onChange={onProductName}
+            value={productName}
+          />
+          <br />
+          <br />
+          <label htmlFor="number">Amount </label>
+          <input
+            type="number"
+            id="number"
+            onChange={onProductAmount}
+            value={productAmount}
+          />
+          <br />
+          <div style={{ color: 'red' }}>{error}</div>
+        </form>
         <br />
-        <br />
-        <label htmlFor="number">Amount </label>
-        <input
-          type="number"
-          id="number"
-          onChange={onProductAmount}
-          value={productAmount}
-        />
-        <br />
-        <div style={{ color: 'red' }}>{error}</div>
-      </form>
-      <br />
-      <button onClick={onSubmitForm}>Add to Cart </button>
-      <button onClick={props.onClickButton}>Close</button>
+        <button onClick={onSubmitForm}>Add to Cart </button>
+        <button onClick={props.onClickButton}>Close</button>
+      </div>
     </div>
   );
 };

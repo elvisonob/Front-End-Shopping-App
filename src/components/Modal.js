@@ -21,7 +21,7 @@ const Modal = (props) => {
     <div className={classes.backDrop}>
       <div className={classes.modal}>
         {cartItems.map((items) => (
-          <li key={items.id}>
+          <li key={items.id} className={classes.listing}>
             <div>{items.name}</div>
             <div>
               {items.qty} x £{items.price}

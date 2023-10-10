@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from './AvailableItems.module.css';
-import mango from './../Images/mango.webp';
+import britishPie from './../Images/British-Pie.jpg';
 import orange from './../Images/orange.jpg';
 import potatoes from './../Images/potatoes.jpg';
 import rice from './../Images/rice.jpg';
@@ -9,8 +9,8 @@ import Filter from './Filter.js';
 export const items = [
   {
     id: 'm1',
-    name: 'mango',
-    image: mango,
+    name: 'British Pie',
+    image: britishPie,
     price: 8.9,
     useByDate: new Date(2024, 6, 25),
   },
@@ -68,8 +68,8 @@ const AvailableItems = (props) => {
               </li>
               <li className={classes['edit-list']}>
                 <div className={classes['list-price']}>
-                  £{item.price}
-                  <div>Used By: {item.useByDate.getFullYear()}</div>
+                  <div className={classes.priceAmount}>£{item.price}</div>
+                  <div>Use By: {item.useByDate.getFullYear()}</div>
                 </div>
 
                 <button onClick={() => onAddItem(item)}>Add to Cart</button>

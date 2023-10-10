@@ -22,7 +22,9 @@
     justify-self: center;
 }
 
-li {
+.listing {
     list-style: none;
     font-weight: 600;
+    border: none;
+    margin-top: 5px;
 }

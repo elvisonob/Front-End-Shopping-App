@@ -7,3 +7,8 @@
 body {
     padding: 20px;
 }
+
+label {
+    font-weight: 700;
+    margin-right: 5px;
+}
