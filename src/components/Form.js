@@ -22,18 +22,31 @@ const Form = (props) => {
     }
     console.log(productName, productAmount);
     props.onManualInput({ productName, productAmount: +productAmount });
+
     setError('');
+    setProductAmount('');
+    setProductName('');
   };
 
   return (
     <div className="form">
       <form>
         <label htmlFor="name">Product Name </label>
-        <input type="text" id="name" onChange={onProductName} />
+        <input
+          type="text"
+          id="name"
+          onChange={onProductName}
+          value={productName}
+        />
         <br />
         <br />
         <label htmlFor="number">Amount </label>
-        <input type="number" id="number" onChange={onProductAmount} />
+        <input
+          type="number"
+          id="number"
+          onChange={onProductAmount}
+          value={productAmount}
+        />
         <br />
         <div style={{ color: 'red' }}>{error}</div>
       </form>

@@ -21,3 +21,8 @@
     animation: slide-down 300ms ease-out forwards;
     justify-self: center;
 }
+
+li {
+    list-style: none;
+    font-weight: 600;
+}
