@@ -10,10 +10,12 @@ const Modal = (props) => {
   );
 
   const onPurchase = () => {
-    cartItems.length === 0
-      ? alert('Checkout is empty, please add an item')
+    cartItems.length === 1
+      ? alert(
+          'Thank you for purchasing this product, your order has been received'
+        )
       : alert(
-          'Thank you for purchasing this products, your order has been received'
+          'Thank you for purchasing these products, your orders has been received'
         );
   };
 

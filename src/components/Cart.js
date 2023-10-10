@@ -14,9 +14,9 @@ const Cart = (props) => {
     cartItems.length === 0 ? (
       ''
     ) : (
-      <h4 className={classes['total-amount']}>
+      <div className={classes['total-amount']}>
         Total Amount: £{totalAmount.toFixed(2)}
-      </h4>
+      </div>
     );
 
   const checkOutDisplay =
