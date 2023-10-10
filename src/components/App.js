@@ -80,7 +80,7 @@ const App = () => {
           portalElement
         )}
       <AvailableItems onAddItem={onAddItem} />
-      <button onClick={onOpenProductForm}>Add Product Manually</button>
+      <button onClick={onOpenProductForm}>Add Product manually to cart</button>
       {addProductManually && (
         <Form
           onClickButton={onCloseProductForm}
