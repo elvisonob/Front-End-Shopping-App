@@ -10,6 +10,22 @@ const Cart = (props) => {
     0
   );
 
+  const totalAmountDisplay =
+    cartItems.length === 0 ? (
+      ''
+    ) : (
+      <h4 className={classes['total-amount']}>
+        Total Amount: £{totalAmount.toFixed(2)}
+      </h4>
+    );
+
+  const checkOutDisplay =
+    cartItems.length === 0 ? (
+      ''
+    ) : (
+      <button onClick={props.onShowModal}>Check out</button>
+    );
+
   return (
     <div className={classes['cart-container']}>
       <h2>Cart</h2>
@@ -27,11 +43,9 @@ const Cart = (props) => {
           </div>
         ))
       )}
-      <h2 className={classes['total-amount']}>
-        Total Amount: £{totalAmount.toFixed(2)}
-      </h2>
+      <h2 className={classes['total-amount']}>{totalAmountDisplay}</h2>
 
-      <button onClick={props.onShowModal}>Check out</button>
+      {checkOutDisplay}
     </div>
   );
 };

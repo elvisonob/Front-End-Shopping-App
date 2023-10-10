@@ -28,7 +28,7 @@ const Modal = (props) => {
             </div>
           </li>
         ))}
-        <h2>£{totalAmount.toFixed(2)}</h2>
+        <h2>Total: £{totalAmount.toFixed(2)}</h2>
         <button onClick={onPurchase}>Purchase</button>
         <button onClick={notShowModal}>Close</button>
       </div>

@@ -15,3 +15,7 @@ form label {
     width: 35%;
     border-radius: 10px;
 }
+
+.addToCart {
+    margin-right: 5px;
+}

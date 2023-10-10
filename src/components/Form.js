@@ -52,7 +52,9 @@ const Form = (props) => {
           <div style={{ color: 'red' }}>{error}</div>
         </form>
         <br />
-        <button onClick={onSubmitForm}>Add to Cart </button>
+        <button onClick={onSubmitForm} className="addToCart">
+          Add to Cart{' '}
+        </button>
         <button onClick={props.onClickButton}>Close</button>
       </div>
     </div>
