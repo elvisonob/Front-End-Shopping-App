@@ -9,11 +9,6 @@ const App = () => {
   const [cartItems, setCartItems] = useState([]);
   const [addProductManually, setAddProductManually] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [modalContents, setModalContents] = useState([]);
-
-  const addItemToModal = (item) => {
-    setModalContents([...modalContents, item]);
-  };
 
   const onAddItem = (product) => {
     const existingItem = cartItems.find((item) => item.id === product.id);
@@ -81,7 +76,7 @@ const App = () => {
     <div>
       {showModal &&
         ReactDOM.createPortal(
-          <Modal modalContents={modalContents} notShowModal={onCloseModal} />,
+          <Modal notShowModal={onCloseModal} cartItems={cartItems} />,
           portalElement
         )}
       <AvailableItems onAddItem={onAddItem} />
@@ -97,7 +92,6 @@ const App = () => {
         onRemoveItem={onRemoveItem}
         cartItems={cartItems}
         onShowModal={onOpenModal}
-        onSendToModal={addItemToModal}
       />
     </div>
   );

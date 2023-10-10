@@ -24,15 +24,13 @@ const Cart = (props) => {
             <button onClick={() => onAddItem(item)}>+</button>
             <button onClick={() => onRemoveItem(item)}>-</button>
             <div>{item.name}</div>
-            <button onClick={() => props.onSendToModal(item)}>
-              Send To Modal
-            </button>
           </div>
         ))
       )}
       <h2 className={classes['total-amount']}>
         Total Amount: £{totalAmount.toFixed(2)}
       </h2>
+
       <button onClick={props.onShowModal}>Check out</button>
     </div>
   );
