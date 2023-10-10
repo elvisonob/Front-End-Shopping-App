@@ -9,4 +9,5 @@ button {
     color: white;
     background-color: brown;
     border-radius: 5px;
+    cursor: pointer;
 }
