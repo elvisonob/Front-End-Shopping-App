@@ -32,7 +32,7 @@ const Form = (props) => {
     <div className="form">
       <div className="control-group">
         <form>
-          <label htmlFor="name">Product Name </label>
+          <label htmlFor="name">Dude</label>
           <input
             type="text"
             id="name"
