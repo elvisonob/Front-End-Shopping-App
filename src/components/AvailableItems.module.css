@@ -13,6 +13,12 @@
     border-radius: 5px;
 }
 
+.display {
+    color: red;
+    text-align: center;
+    font-weight: bolder;
+}
+
 .priceAmount {
     font-weight: bolder;
 }

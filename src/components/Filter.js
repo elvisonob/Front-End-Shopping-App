@@ -13,7 +13,6 @@ const Filter = (props) => {
         <option value="2024">Use by 2024</option>
         <option value="2025">Use by 2025</option>
         <option value="2026">Use by 2026</option>
-        <option value="2027">Use by 2027</option>
       </select>
     </div>
   );

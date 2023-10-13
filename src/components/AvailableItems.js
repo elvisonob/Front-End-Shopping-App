@@ -20,7 +20,7 @@ export const items = [
     name: 'Orange',
     image: orange,
     price: 7.1,
-    useByDate: new Date(2025, 0, 13),
+    useByDate: new Date(2024, 0, 13),
   },
 
   {
@@ -28,7 +28,7 @@ export const items = [
     name: 'Rice',
     image: rice,
     price: 3.4,
-    useByDate: new Date(2026, 1, 15),
+    useByDate: new Date(2025, 1, 15),
   },
 
   {
@@ -36,7 +36,7 @@ export const items = [
     name: 'Potatoes',
     image: potatoes,
     price: 4.2,
-    useByDate: new Date(2027, 5, 20),
+    useByDate: new Date(2025, 5, 20),
   },
 ];
 
@@ -59,24 +59,35 @@ const AvailableItems = (props) => {
     <div className={classes['items-container']}>
       <Filter selected={filteredYear} onDropDownChange={onChangeFilterDate} />
       <ul>
-        {arrayToShow.map((item) => {
-          return (
-            <div className={classes['list-items']} key={item.id}>
-              <h2>{item.name}</h2>
-              <li>
-                <img src={item.image} alt="images" width="100%" height="100%" />
-              </li>
-              <li className={classes['edit-list']}>
-                <div className={classes['list-price']}>
-                  <div className={classes.priceAmount}>£{item.price}</div>
-                  <div>Use By: {item.useByDate.getFullYear()}</div>
-                </div>
+        {arrayToShow.length === 0 ? (
+          <div className={classes.display}>
+            No selected item for filtered Year
+          </div>
+        ) : (
+          arrayToShow.map((item) => {
+            return (
+              <div className={classes['list-items']} key={item.id}>
+                <h2>{item.name}</h2>
+                <li>
+                  <img
+                    src={item.image}
+                    alt="images"
+                    width="100%"
+                    height="100%"
+                  />
+                </li>
+                <li className={classes['edit-list']}>
+                  <div className={classes['list-price']}>
+                    <div className={classes.priceAmount}>£{item.price}</div>
+                    <div>Use By: {item.useByDate.getFullYear()}</div>
+                  </div>
 
-                <button onClick={() => onAddItem(item)}>Add to Cart</button>
-              </li>
-            </div>
-          );
-        })}
+                  <button onClick={() => onAddItem(item)}>Add to Cart</button>
+                </li>
+              </div>
+            );
+          })
+        )}
       </ul>
     </div>
   );
