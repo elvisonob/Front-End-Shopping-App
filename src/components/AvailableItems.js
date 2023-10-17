@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './AvailableItems.module.css';
 import britishPie from './../Images/British-Pie.jpg';
 import orange from './../Images/orange.jpg';
@@ -6,7 +6,7 @@ import potatoes from './../Images/potatoes.jpg';
 import rice from './../Images/rice.jpg';
 import Filter from './Filter.js';
 
-export const items = [
+const items = [
   {
     id: 'm1',
     name: 'British Pie',
@@ -41,19 +41,39 @@ export const items = [
 ];
 
 const AvailableItems = (props) => {
+  const [itemData, setItemData] = useState();
   const { onAddItem } = props;
   const [filteredYear, setFilteredYear] = useState('');
+
+  const fetchItems = async () => {
+    try {
+      const data = await fetch('http://localhost:8080/api/get-items/items');
+      if (!data.ok) {
+        throw Error('Something went wrong with fetching');
+      }
+      const response = await data.json();
+      console.log(response.items);
+
+      setItemData(response.items);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
   const onChangeFilterDate = (filteredYear) => {
     console.log(filteredYear);
     setFilteredYear(filteredYear);
   };
 
-  const filteredArray = items.filter(
+  const filteredArray = itemData.filter(
     (item) => item.useByDate.getFullYear().toString() === filteredYear
   );
 
-  const arrayToShow = filteredYear === '' ? items : filteredArray;
+  const arrayToShow = filteredYear === '' ? itemData : filteredArray;
 
   return (
     <div className={classes['items-container']}>
