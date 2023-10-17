@@ -41,11 +41,13 @@ const items = [
 ];
 
 const AvailableItems = (props) => {
-  const [itemData, setItemData] = useState();
+  const [itemData, setItemData] = useState([]);
   const { onAddItem } = props;
   const [filteredYear, setFilteredYear] = useState('');
+  const [isLoading, setIsLoading] = useState(null);
 
   const fetchItems = async () => {
+    setIsLoading(true);
     try {
       const data = await fetch('http://localhost:8080/api/get-items/items');
       if (!data.ok) {
@@ -58,6 +60,7 @@ const AvailableItems = (props) => {
     } catch (err) {
       console.log(err);
     }
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -69,8 +72,10 @@ const AvailableItems = (props) => {
     setFilteredYear(filteredYear);
   };
 
+  console.log(itemData);
+
   const filteredArray = itemData.filter(
-    (item) => item.useByDate.getFullYear().toString() === filteredYear
+    (item) => item.useByDate === filteredYear
   );
 
   const arrayToShow = filteredYear === '' ? itemData : filteredArray;
@@ -99,7 +104,7 @@ const AvailableItems = (props) => {
                 <li className={classes['edit-list']}>
                   <div className={classes['list-price']}>
                     <div className={classes.priceAmount}>£{item.price}</div>
-                    <div>Use By: {item.useByDate.getFullYear()}</div>
+                    <div>Use By</div>
                   </div>
 
                   <button onClick={() => onAddItem(item)}>Add to Cart</button>
