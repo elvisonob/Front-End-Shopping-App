@@ -1,44 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classes from './AvailableItems.module.css';
-import britishPie from './../Images/British-Pie.jpg';
-import orange from './../Images/orange.jpg';
-import potatoes from './../Images/potatoes.jpg';
-import rice from './../Images/rice.jpg';
 import Filter from './Filter.js';
-
-const items = [
-  {
-    id: 'm1',
-    name: 'British Pie',
-    image: britishPie,
-    price: 8.9,
-    useByDate: new Date(2024, 6, 25),
-  },
-
-  {
-    id: 'm2',
-    name: 'Orange',
-    image: orange,
-    price: 7.1,
-    useByDate: new Date(2024, 0, 13),
-  },
-
-  {
-    id: 'm3',
-    name: 'Rice',
-    image: rice,
-    price: 3.4,
-    useByDate: new Date(2025, 1, 15),
-  },
-
-  {
-    id: 'm4',
-    name: 'Potatoes',
-    image: potatoes,
-    price: 4.2,
-    useByDate: new Date(2025, 5, 20),
-  },
-];
 
 const AvailableItems = (props) => {
   const [itemData, setItemData] = useState([]);
@@ -72,6 +34,10 @@ const AvailableItems = (props) => {
     setFilteredYear(filteredYear);
   };
 
+  if (isLoading) {
+    return <h1 className={classes['process-sign']}>Loading</h1>;
+  }
+
   console.log(itemData);
 
   const filteredArray = itemData.filter(
@@ -84,6 +50,7 @@ const AvailableItems = (props) => {
     <div className={classes['items-container']}>
       <Filter selected={filteredYear} onDropDownChange={onChangeFilterDate} />
       <ul>
+        {isLoading}
         {arrayToShow.length === 0 ? (
           <div className={classes.display}>
             No selected item for filtered Year
@@ -104,7 +71,7 @@ const AvailableItems = (props) => {
                 <li className={classes['edit-list']}>
                   <div className={classes['list-price']}>
                     <div className={classes.priceAmount}>£{item.price}</div>
-                    <div>Use By</div>
+                    <div>Use By {item.useByDate}</div>
                   </div>
 
                   <button onClick={() => onAddItem(item)}>Add to Cart</button>

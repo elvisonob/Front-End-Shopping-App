@@ -6,6 +6,11 @@
     list-style: none;
 }
 
+.process-sign {
+    text-align: center;
+    font-size: larger;
+}
+
 .list-items {
     display: grid;
     grid-template-rows: 50px 250px 1fr;
