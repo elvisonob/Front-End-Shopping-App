@@ -39,7 +39,6 @@ const AvailableItems = (props) => {
     return <h1 className={classes['process-sign']}>Loading...</h1>;
   }
 
-  console.log(itemData);
 
   const filteredArray = itemData.filter(
     (item) => item.useByDate === filteredYear
