@@ -11,7 +11,9 @@ const AvailableItems = (props) => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const data = await fetch('http://localhost:8080/api/get-items/items');
+      const data = await fetch(
+        'https://shopping-backend-application.onrender.com/api/get-items/items'
+      );
       if (!data.ok) {
         throw Error('Something went wrong with fetching');
       }
@@ -35,7 +37,7 @@ const AvailableItems = (props) => {
   };
 
   if (isLoading) {
-    return <h1 className={classes['process-sign']}>Loading</h1>;
+    return <h1 className={classes['process-sign']}>Loading...</h1>;
   }
 
   console.log(itemData);
