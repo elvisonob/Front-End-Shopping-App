@@ -18,7 +18,6 @@ const AvailableItems = (props) => {
         throw Error('Something went wrong with fetching');
       }
       const response = await data.json();
-      console.log(response.items);
 
       setItemData(response.items);
     } catch (err) {
