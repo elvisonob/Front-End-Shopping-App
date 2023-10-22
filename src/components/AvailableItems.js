@@ -36,9 +36,8 @@ const AvailableItems = (props) => {
   };
 
   if (isLoading) {
-    return <h1 className={classes['process-sign']}>Loading...</h1>;
+    return <h1 className={classes['process-sign']}>Loading products...</h1>;
   }
-
 
   const filteredArray = itemData.filter(
     (item) => item.useByDate === filteredYear
